@@ -109,4 +109,4 @@ jobs:
         with:
           name: app-artifact
       - name: Deploy Application
-        run: echo "Deploying application... (This is a placeholder step)"
+        run: echo "Deploying application... (This is )"
