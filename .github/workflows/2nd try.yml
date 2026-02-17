@@ -74,6 +74,7 @@ jobs:
           scan-ref: '.'
           format: 'table'
           exit-code: '0'
+          scanners: 'secret'
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
