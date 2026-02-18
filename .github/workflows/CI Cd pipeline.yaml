@@ -55,7 +55,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        
+
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
@@ -96,7 +96,9 @@ jobs:
     permissions:
       contents: read
       packages: write
-
+    # env:
+    #   AWS_REGION: us-west-2
+    #   ECR_REPOSITORY: webapp
     steps:
       - uses: actions/checkout@v4
 
