@@ -1,0 +1,72 @@
+apiVersion: ecr.aws.upbound.io/v1beta1
+kind: Repository
+metadata:
+  name: webapp
+spec:
+  forProvider:
+    name: webapp
+    imageTagMutability: MUTABLE
+    imageScanningConfiguration:
+      - scanOnPush: true
+    forceDelete: true
+  providerConfigRef:
+    name: default
+
+---
+apiVersion: iam.aws.upbound.io/v1beta1
+kind: Role
+metadata:
+  name: apprunner-ecr-role
+spec:
+  forProvider:
+    description: "Role for App Runner to access ECR"
+    assumeRolePolicy: |
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Action": "sts:AssumeRole",
+            "Effect": "Allow",
+            "Principal": {
+              "Service": "build.apprunner.amazonaws.com"
+            }
+          }
+        ]
+      }
+  providerConfigRef:
+    name: default
+
+---
+apiVersion: iam.aws.upbound.io/v1beta1
+kind: RolePolicyAttachment
+metadata:
+  name: apprunner-ecr-policy-attachment
+spec:
+  forProvider:
+    policyArn: "arn:aws:iam::aws:policy/service-role/AWSAppRunnerServicePolicyForECRAccess"
+    roleSelector:
+      matchLabels:
+        role: apprunner-ecr-role
+  providerConfigRef:
+    name: default
+
+---
+apiVersion: apprunner.aws.upbound.io/v1beta1
+kind: Service
+metadata:
+  name: webapp-service
+spec:
+  forProvider:
+    serviceName: webapp-service
+    sourceConfiguration:
+      - authenticationConfiguration:
+          - accessRoleArnSelector:
+              matchLabels:
+                role: apprunner-ecr-role
+        imageRepository:
+          - imageIdentifier: "public.ecr.aws/nginx/nginx:latest" # Placeholder until first push, or user updates
+            imageRepositoryType: "ECR"
+            imageConfiguration:
+              - port: "8080"
+  providerConfigRef:
+    name: default
