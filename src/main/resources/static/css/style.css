@@ -5,13 +5,18 @@
 }
 
 :root {
-    --primary-color: #ff6b35;
-    --secondary-color: #004e89;
-    --accent-color: #1a659e;
-    --text-color: #333;
-    --light-bg: #f8f9fa;
+    --primary-color: #6366f1;
+    /* Indigo */
+    --secondary-color: #1e293b;
+    /* Slate 800 */
+    --accent-color: #818cf8;
+    /* Indigo 400 */
+    --text-color: #334155;
+    /* Slate 700 */
+    --light-bg: #f1f5f9;
+    /* Slate 100 */
     --white: #ffffff;
-    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 html {
@@ -19,9 +24,10 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: var(--text-color);
     line-height: 1.6;
+    background-color: var(--light-bg);
 }
 
 .container {
@@ -80,13 +86,13 @@ body {
 }
 
 .cart-icon:hover {
-    background: darken(var(--primary-color), 10%);
+    background: var(--primary-dark);
     transform: scale(1.05);
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #0f172a 100%);
     color: var(--white);
     padding: 100px 20px;
     text-align: center;
@@ -125,7 +131,7 @@ body {
 }
 
 .cta-button:hover {
-    background: darken(var(--primary-color), 10%);
+    background: var(--primary-dark);
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
 }
@@ -208,7 +214,7 @@ body {
 }
 
 .add-to-cart:hover {
-    background: darken(var(--primary-color), 10%);
+    background: var(--primary-dark);
 }
 
 /* About Section */
