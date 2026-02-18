@@ -144,7 +144,7 @@ jobs:
 
       - name: Deploy to App Runner
         id: deploy-app-runner
-        uses: aws-actions/amazon-app-runner-deploy@main
+        uses: awslabs/amazon-app-runner-deploy@main
         with:
           service: webapp-service
           image: ${{ needs.docker.outputs.image }}
