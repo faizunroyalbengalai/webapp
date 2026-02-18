@@ -6,6 +6,7 @@
 
 :root {
     --primary-color: #6366f1;
+    --primary-dark: #4338ca;
     /* Indigo */
     --secondary-color: #1e293b;
     /* Slate 800 */
@@ -127,13 +128,13 @@ body {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
 
 .cta-button:hover {
     background: var(--primary-dark);
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
 }
 
 /* Products Section */
@@ -319,7 +320,7 @@ body {
 }
 
 .submit-btn:hover {
-    background: darken(var(--primary-color), 10%);
+    background: var(--primary-dark);
     transform: translateY(-2px);
 }
 
