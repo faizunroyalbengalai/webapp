@@ -53,10 +53,15 @@ jobs:
       security-events: write
 
     steps:
-      - name: check java version
-        run: java -version
       - name: Checkout repository
         uses: actions/checkout@v4
+        
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
 
       # CodeQL
       - name: Initialize CodeQL
