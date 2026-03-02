@@ -4,19 +4,21 @@ metadata:
   name: webapp
 spec:
   forProvider:
-    name: webapp
+    region: us-east-1
     imageTagMutability: MUTABLE
     imageScanningConfiguration:
       - scanOnPush: true
     forceDelete: true
   providerConfigRef:
-    name: default
+    name: aws-config
 
 ---
 apiVersion: iam.aws.upbound.io/v1beta1
 kind: Role
 metadata:
   name: apprunner-ecr-role
+  labels:
+    role: apprunner-ecr-role
 spec:
   forProvider:
     description: "Role for App Runner to access ECR"
@@ -34,7 +36,7 @@ spec:
         ]
       }
   providerConfigRef:
-    name: default
+    name: aws-config
 
 ---
 apiVersion: iam.aws.upbound.io/v1beta1
@@ -44,11 +46,10 @@ metadata:
 spec:
   forProvider:
     policyArn: "arn:aws:iam::aws:policy/service-role/AWSAppRunnerServicePolicyForECRAccess"
-    roleSelector:
-      matchLabels:
-        role: apprunner-ecr-role
+    roleRef:
+      name: apprunner-ecr-role
   providerConfigRef:
-    name: default
+    name: aws-config
 
 ---
 apiVersion: apprunner.aws.upbound.io/v1beta1
@@ -57,16 +58,16 @@ metadata:
   name: webapp-service
 spec:
   forProvider:
-    serviceName: webapp-service
+    region: us-east-1
+    serviceName: webapp-service_faizun
     sourceConfiguration:
       - authenticationConfiguration:
-          - accessRoleArnSelector:
-              matchLabels:
-                role: apprunner-ecr-role
+          - accessRoleArn: arn:aws:iam::192626564093:role/apprunner-ecr-role
+
         imageRepository:
-          - imageIdentifier: "public.ecr.aws/nginx/nginx:latest" # Placeholder until first push, or user updates
+          - imageIdentifier: "192626564093.dkr.ecr.us-east-1.amazonaws.com/webapp:latest" # Placeholder until first push, or user updates
             imageRepositoryType: "ECR"
             imageConfiguration:
               - port: "8080"
   providerConfigRef:
-    name: default
+    name: aws-config

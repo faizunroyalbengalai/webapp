@@ -99,9 +99,9 @@ jobs:
     permissions:
       contents: read
       packages: write
-    # env:
-    #   AWS_REGION: us-west-2
-    #   ECR_REPOSITORY: webapp
+    env:
+      AWS_REGION: us-east-1
+      ECR_REPOSITORY: webapp
     steps:
       - uses: actions/checkout@v4
 
@@ -146,7 +146,7 @@ jobs:
         id: deploy-app-runner
         uses: awslabs/amazon-app-runner-deploy@main
         with:
-          service: webapp-service
+          service: webapp-service_faizun
           image: ${{ needs.docker.outputs.image }}
           access-role-arn: ${{ secrets.APP_RUNNER_ROLE_ARN }}
           region: ${{ env.AWS_REGION }}

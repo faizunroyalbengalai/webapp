@@ -1,20 +1,20 @@
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
-  name: provider-aws-ecr
+  name: upbound-provider-aws-ecr
 spec:
-  package: xpkg.upbound.io/upbound/provider-aws-ecr:v1.1.0
+  package: xpkg.upbound.io/upbound/provider-aws-ecr:v2.4.0
 ---
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
-  name: provider-aws-apprunner
+  name: upbound-provider-aws-apprunner
 spec:
-  package: xpkg.upbound.io/upbound/provider-aws-apprunner:v1.1.0
+  package: xpkg.upbound.io/upbound/provider-aws-apprunner:v2.4.0
 ---
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
-  name: provider-aws-iam
+  name: upbound-provider-aws-iam
 spec:
-  package: xpkg.upbound.io/upbound/provider-aws-iam:v1.1.0
+  package: xpkg.upbound.io/upbound/provider-aws-iam:v2.4.0
