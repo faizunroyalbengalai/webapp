@@ -7,13 +7,17 @@
     <title th:text="${storeName}">Store</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
+    <!-- Background Elements -->
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+
     <!-- Navigation Bar -->
-    <nav class="navbar">
+    <nav class="navbar glass-effect">
         <div class="container">
             <div class="navbar-brand" th:text="${storeName}">Store</div>
             <ul class="nav-links">
@@ -21,100 +25,125 @@
                 <li><a href="#products">Products</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#cart" class="cart-icon"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                <li><a href="#cart" class="cart-btn"><i class="fas fa-shopping-cart"></i> Cart</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Welcome to <span th:text="${storeName}"></span></h1>
+        <div class="hero-content fade-in-up">
+            <h1>Welcome to <br /><span class="text-gradient" th:text="${storeName}"></span></h1>
             <p class="tagline" th:text="${tagline}"></p>
-            <button class="cta-button">Shop Now</button>
+            <div class="hero-buttons">
+                <button class="cta-button primary">Shop Now <i class="fas fa-arrow-right"></i></button>
+                <button class="cta-button secondary">Learn More</button>
+            </div>
+        </div>
+        <div class="hero-image fade-in">
+            <!-- Decorative isometric vector or placeholder -->
+            <div class="glass-orb">
+                <i class="fas fa-microchip"></i>
+            </div>
         </div>
     </section>
 
     <!-- Featured Products Section -->
     <section id="products" class="products">
         <div class="container">
-            <h2>Featured Products</h2>
+            <div class="section-header">
+                <h2>Featured Products</h2>
+                <div class="header-line"></div>
+            </div>
             <div class="products-grid">
                 <!-- Product 1 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <i class="fas fa-laptop"></i>
+                <div class="product-card glass-panel">
+                    <div class="card-badge">Bestseller</div>
+                    <div class="product-icon-container gradient-1">
+                        <i class="fas fa-laptop-code"></i>
                     </div>
                     <div class="product-info">
                         <h3>AI Learning Kit</h3>
-                        <p class="price">$299.99</p>
-                        <p class="description">Complete machine learning starter package</p>
-                        <button class="add-to-cart">Add to Cart</button>
+                        <p class="description">Complete machine learning starter package with hardware.</p>
+                        <div class="price-action">
+                            <span class="price">$299<span class="cents">.99</span></span>
+                        </div>
+                        <button class="add-to-cart-btn"><i class="fas fa-plus"></i> Add</button>
                     </div>
                 </div>
 
                 <!-- Product 2 -->
-                <div class="product-card">
-                    <div class="product-image">
+                <div class="product-card glass-panel">
+                    <div class="product-icon-container gradient-2">
                         <i class="fas fa-brain"></i>
                     </div>
                     <div class="product-info">
                         <h3>Neural Network Course</h3>
-                        <p class="price">$149.99</p>
-                        <p class="description">Advanced deep learning fundamentals</p>
-                        <button class="add-to-cart">Add to Cart</button>
+                        <p class="description">Advanced deep learning fundamentals from zero to hero.</p>
+                        <div class="price-action">
+                            <span class="price">$149<span class="cents">.99</span></span>
+                        </div>
+                        <button class="add-to-cart-btn"><i class="fas fa-plus"></i> Add</button>
                     </div>
                 </div>
 
                 <!-- Product 3 -->
-                <div class="product-card">
-                    <div class="product-image">
+                <div class="product-card glass-panel">
+                    <div class="product-icon-container gradient-3">
                         <i class="fas fa-server"></i>
                     </div>
                     <div class="product-info">
                         <h3>Cloud AI Platform</h3>
-                        <p class="price">$499.99</p>
-                        <p class="description">Enterprise-grade AI deployment solution</p>
-                        <button class="add-to-cart">Add to Cart</button>
+                        <p class="description">Enterprise-grade scalable AI deployment solution.</p>
+                        <div class="price-action">
+                            <span class="price">$499<span class="cents">.99</span></span>
+                        </div>
+                        <button class="add-to-cart-btn"><i class="fas fa-plus"></i> Add</button>
                     </div>
                 </div>
 
                 <!-- Product 4 -->
-                <div class="product-card">
-                    <div class="product-image">
+                <div class="product-card glass-panel">
+                    <div class="product-icon-container gradient-4">
                         <i class="fas fa-robot"></i>
                     </div>
                     <div class="product-info">
                         <h3>Automation Toolkit</h3>
-                        <p class="price">$199.99</p>
-                        <p class="description">Complete automation solution suite</p>
-                        <button class="add-to-cart">Add to Cart</button>
+                        <p class="description">Complete automation solution suite for your business.</p>
+                        <div class="price-action">
+                            <span class="price">$199<span class="cents">.99</span></span>
+                        </div>
+                        <button class="add-to-cart-btn"><i class="fas fa-plus"></i> Add</button>
                     </div>
                 </div>
 
                 <!-- Product 5 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <i class="fas fa-chart-line"></i>
+                <div class="product-card glass-panel">
+                    <div class="product-icon-container gradient-5">
+                        <i class="fas fa-chart-network"></i>
                     </div>
                     <div class="product-info">
                         <h3>Data Analytics Pro</h3>
-                        <p class="price">$349.99</p>
-                        <p class="description">Advanced analytics and visualization</p>
-                        <button class="add-to-cart">Add to Cart</button>
+                        <p class="description">Advanced analytics, forecasting and visualization tool.</p>
+                        <div class="price-action">
+                            <span class="price">$349<span class="cents">.99</span></span>
+                        </div>
+                        <button class="add-to-cart-btn"><i class="fas fa-plus"></i> Add</button>
                     </div>
                 </div>
 
                 <!-- Product 6 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <i class="fas fa-shield-alt"></i>
+                <div class="product-card glass-panel">
+                    <div class="product-icon-container gradient-6">
+                        <i class="fas fa-shield-halved"></i>
                     </div>
                     <div class="product-info">
                         <h3>Security Suite</h3>
-                        <p class="price">$249.99</p>
-                        <p class="description">Comprehensive cybersecurity tools</p>
-                        <button class="add-to-cart">Add to Cart</button>
+                        <p class="description">AI-powered comprehensive cybersecurity defense layer.</p>
+                        <div class="price-action">
+                            <span class="price">$249<span class="cents">.99</span></span>
+                        </div>
+                        <button class="add-to-cart-btn"><i class="fas fa-plus"></i> Add</button>
                     </div>
                 </div>
             </div>
@@ -124,26 +153,41 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2>About Us</h2>
-            <div class="about-content">
-                <p>Royal Bengal AI is a leading provider of cutting-edge AI and automation solutions. We empower
-                    businesses and individuals with the tools and knowledge needed to thrive in the digital age.</p>
-                <div class="about-features">
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <h3>Premium Quality</h3>
-                        <p>Top-tier products and courses</p>
+            <div class="about-grid">
+                <div class="about-image fade-in">
+                    <div class="glass-panel about-panel">
+                        <i class="fas fa-microchip mb-icon"></i>
+                        <h3 class="text-gradient">Innovating the Future</h3>
+                        <div class="stats">
+                            <div class="stat">
+                                <span class="stat-number">10k+</span>
+                                <span class="stat-label">Customers</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">99%</span>
+                                <span class="stat-label">Satisfaction</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <h3>Expert Support</h3>
-                        <p>24/7 customer assistance</p>
+                </div>
+                <div class="about-text fade-in-right">
+                    <div class="section-header align-left">
+                        <h2>About Us</h2>
+                        <div class="header-line"></div>
                     </div>
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <h3>Fast Delivery</h3>
-                        <p>Quick and reliable shipping</p>
-                    </div>
+                    <p class="lead">Royal Bengal AI is a leading provider of cutting-edge AI and automation solutions.
+                    </p>
+                    <p>We empower businesses and individuals with the modern tools and deep knowledge needed to thrive
+                        in the digital age. Our mission is to democratize advanced technology.</p>
+
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle text-gradient"></i> <strong>Premium Quality</strong> —
+                            Top-tier products and courses</li>
+                        <li><i class="fas fa-check-circle text-gradient"></i> <strong>Expert Support</strong> — 24/7
+                            dedicated customer assistance</li>
+                        <li><i class="fas fa-check-circle text-gradient"></i> <strong>Fast Delivery</strong> — Quick and
+                            reliable digital fulfillment</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -151,57 +195,82 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="container">
-            <h2>Get in Touch</h2>
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+        <div class="container relative-z">
+            <div class="contact-wrapper glass-panel">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>We'd love to hear from you! Send us a message and our team will get back to you immediately.</p>
+                    <div class="contact-methods">
+                        <div class="method"><i class="fas fa-envelope"></i> hello@royalbengalai.com</div>
+                        <div class="method"><i class="fas fa-phone"></i> +1 (555) 123-4567</div>
+                        <div class="method"><i class="fas fa-location-dot"></i> Tech Hub, CA 90210</div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder=" " required>
+                        <label for="name">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder=" " required>
+                        <label for="email">Email Address</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="4" placeholder=" " required></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    <button type="submit" class="submit-btn primary">Send Message <i
+                            class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>About</h4>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="navbar-brand text-gradient" th:text="${storeName}">Store</div>
+                    <p>Empowering the future with intelligent automation and world-class AI solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
                     <ul>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="#about">About Us</a></li>
                         <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
                         <li><a href="#">Partners</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Support</h4>
+                <div class="footer-links">
+                    <h4>Resources</h4>
                     <ul>
                         <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#contact">Contact Support</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                <div class="footer-links">
                     <h4>Legal</h4>
                     <ul>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms of Service</a></li>
                         <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Security</a></li>
                     </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Royal Bengal AI Store. All rights reserved. | Developed by Faizun</p>
+                <p>&copy; 2026 Royal Bengal AI. All rights reserved. | Crafted with <i class="fas fa-heart"
+                        style="color:#ef4444;"></i> by Faizun</p>
             </div>
         </div>
     </footer>
