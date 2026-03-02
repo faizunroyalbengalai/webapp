@@ -72,4 +72,5 @@ output "ecr_repository_url" {
 
 output "app_runner_service_url" {
   value = aws_apprunner_service.webapp.service_url
+  
 }
