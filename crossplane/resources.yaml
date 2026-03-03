@@ -58,6 +58,8 @@ metadata:
   name: webapp-service
 spec:
   forProvider:
+    autoScalingConfigurationArnRef:
+      name: webapp-scaling
     region: us-east-1
     serviceName: webapp-service_faizun
     sourceConfiguration:
@@ -69,5 +71,20 @@ spec:
             imageRepositoryType: "ECR"
             imageConfiguration:
               - port: "8080"
+  providerConfigRef:
+    name: aws-config
+
+---
+apiVersion: apprunner.aws.upbound.io/v1beta1
+kind: AutoScalingConfigurationVersion
+metadata:
+  name: webapp-scaling
+spec:
+  forProvider:
+    autoScalingConfigurationName: webapp-scaling-config
+    maxConcurrency: 100 # Adjust number of concurrent requests per instance
+    minSize: 1          # Minimum number of instances
+    maxSize: 5          # Maximum number of instances to scale out to
+    region: us-east-1
   providerConfigRef:
     name: aws-config
